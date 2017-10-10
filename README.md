@@ -4,7 +4,7 @@ We prepared an application skeleton for you that has a failing test case.
 
 To pass the exercise, follow these steps:
 
-## 1) Set-up Travis CI for your fork
+## 1) Set-up Travis CI for your repository
 
 * Log-in to [Travis CI](http://travis-ci.org) and
 * Enable automatic builds for your exercise repository (add the hpi-swt2-exercise group to the list on the left and activate the builds for your repository by flicking the switch on)
@@ -23,7 +23,7 @@ To pass the exercise, follow these steps:
 
 ### Option 2: Use a VM
 * Install [Virtualbox](https://www.virtualbox.org/manual/ch02.html) (the VM provider) and [Vagrant](https://www.vagrantup.com/docs/installation/) (to manage VMs) for your platform.
-* Download the prepared VM image and install the dependencies:
+* Run these commands in the root directory of your cloned repository to download and the prepare the VM image:
 
 ```
 vagrant up # download the image and start the VM
@@ -40,7 +40,9 @@ cd hpi-swt2
 rails s -b 0 #starting rails server, the -b part is necessary since the app is running in a VM and would otherwise drop the requests coming from the host OS
 ```
 
+* You can open the application in your web browser via http://127.0.0.1:3000/
 * Edits to files in the local folder will be mirrored into the VM's `hpi-swt2` folder as the folders are synced.
+* We recommend you to open one terminal session that runs the development server and another one to execute commands on the maschine (e.g., running tests). Thereby, you do not have to restart the server after each command.
 
 ## 3) Dive into the code
 
