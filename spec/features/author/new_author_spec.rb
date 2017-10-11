@@ -10,8 +10,8 @@ describe "New author page", type: :feature do
     visit new_author_path
 	  
     expect(page).to have_field('First name')
-	expect(page).to have_field('Last name')
-	expect(page).to have_field('Homepage')
+	  expect(page).to have_field('Last name')
+	  expect(page).to have_field('Homepage')
   end
 
   it "should have a submitt button" do
