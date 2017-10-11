@@ -15,4 +15,10 @@ RSpec.describe Author, type: :model do
     expect(author.homepage).to eq(homepage)
   end
 
+  it "return the full name on calling the method name" do
+    author = Author.new(:first_name => 'Alan', :last_name => 'Turing', :homepage => 'http://wikipedia.org/Alan_Turing')
+
+    expect(author.name).to eq('Alan Turing')
+  end
+
 end
