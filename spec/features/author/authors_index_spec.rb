@@ -25,4 +25,10 @@ describe "New author page", type: :feature do
 
     expect(page).to have_link("Add author")
   end
+
+  it "should have a show-author-link" do
+    visit authors_path
+
+    expect(page).to have_link("Show")
+  end
 end
