@@ -6,11 +6,23 @@ describe "New author page", type: :feature do
     visit authors_path
   end
 
-  it "should render withour error" do
-    @author = FactoryGirl.create :author
+  it "should display name" do
+    author = FactoryGirl.create :author
     visit authors_path
 
-    expect(page).to have_text(@author.name)
-    expect(page).to have_text(@author.homepage)
+    expect(page).to have_text(author.name)
+  end
+
+  it "should display homepage" do
+    author = FactoryGirl.create :author
+    visit authors_path
+
+    expect(page).to have_text(author.homepage)
+  end
+
+  it "should have an add-author-link" do
+    visit authors_path
+
+    expect(page).to have_link("Add author")
   end
 end
