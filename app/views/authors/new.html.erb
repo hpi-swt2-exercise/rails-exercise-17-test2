@@ -1,6 +1,6 @@
 <h1>New Author</h1>
 
-<%= form_for :article do |f| %>
+<%= form_for :author do |f| %>
   <p>
     <%= f.label :first_name %><br>
     <%= f.text_field :first_name %>
@@ -15,4 +15,8 @@
     <%= f.label :homepage %><br>
     <%= f.text_area :homepage %>
   </p>	
+
+  <p>
+    <%= f.submit %>
+  </p>
 <% end %>
