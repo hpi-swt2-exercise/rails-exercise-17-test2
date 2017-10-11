@@ -7,8 +7,10 @@ describe "New author page", type: :feature do
   end
 
   it "should render withour error" do
+    @author = FactoryGirl.create :author
     visit authors_path
 
-    expect(page).to have_text('Homepage: '+@author.homepage)
+    expect(page).to have_text(@author.name)
+    expect(page).to have_text(@author.homepage)
   end
 end
