@@ -7,15 +7,20 @@ describe "Author details page", type: :feature do
     @author = FactoryGirl.create :author
     visit "/authors/" + @author.id.to_s
 
-    expect(page).to have_text('First name:')
-    expect(page).to have_text('Alan')
+    expect(page).to have_text('First name: '+@author.first_name)
   end
 
   it "should display the last name" do
     @author = FactoryGirl.create :author
     visit "/authors/" + @author.id.to_s
 
-    expect(page).to have_text('Last name:')
-    expect(page).to have_text('Turing')
+    expect(page).to have_text('Last name: '+@author.last_name)
+  end
+
+  it "should display the homepage" do
+    @author = FactoryGirl.create :author
+    visit "/authors/" + @author.id.to_s
+
+    expect(page).to have_text('Homepage: '+@author.homepage)
   end
 end
