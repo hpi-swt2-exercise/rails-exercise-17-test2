@@ -51,4 +51,14 @@ describe "Author index page", type: :feature do
 
     expect(page).to have_link("Destroy", author_path(author))
   end
+
+
+  it "should have a destroy-author-link" do
+    author = FactoryGirl.create :author
+
+    visit authors_path
+
+    page.click_link('Destroy'+author.id.to_s)
+    expect(Author.where(id: author.id)).not_to exist
+  end
 end
