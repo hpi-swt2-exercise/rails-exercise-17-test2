@@ -58,7 +58,9 @@ describe "Author index page", type: :feature do
 
     visit authors_path
 
-    page.click_link('Destroy'+author.id.to_s)
+    #page.click_link('Destroy'+author.id.to_s)
+    page.find("a[href='#{author_path(author)}']", :text => /\ADestroy\z/).click
+    #(page.find(:css, "a[href=\""+author_pathU+"\"]"))[:href] == author_path(author)).click
     expect(Author.where(id: author.id)).not_to exist
   end
 end
