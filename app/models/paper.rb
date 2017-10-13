@@ -1,5 +1,6 @@
 class Paper < ActiveRecord::Base
-	has_many :authors
+	has_many :authorships
+	has_many :authors, through: :authorships
 
 	validates :title, presence: true
 	validates :venue, presence: true

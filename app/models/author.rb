@@ -1,5 +1,6 @@
 class Author < ActiveRecord::Base
-	has_many :papers
+	has_many :authorships
+	has_many :papers, through: :authorships
 
 	validates :first_name, presence: true
 	validates :last_name, presence: true
