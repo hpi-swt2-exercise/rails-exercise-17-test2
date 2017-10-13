@@ -36,6 +36,24 @@ describe "Paper edit page", type: :feature do
     5.times do |i| 
       expect(page).to have_field("Author #{i+1}")
     end
+
+    5.times do |i| 
+      expect(page).to have_field("paper_author_id_#{i+1}")
+    end
+  end
+
+  it "should change the first author" do
+    paper = FactoryGirl.create :paper
+    author2 = Author.new(:first_name => 'Peter', :last_name => 'Plagiarist', :homepage => 'http://wikipedia.de/alan_turing')
+    author2.save!
+
+    visit edit_paper_path(paper)
+
+    select author2.name, :from => "paper_author_id_1"
+    find('input[type="submit"]').click
+
+    expect(Paper.find(paper.id).authors.first).to eq(author2) 
+
   end
 
 
