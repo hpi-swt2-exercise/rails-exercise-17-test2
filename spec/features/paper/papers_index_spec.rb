@@ -28,4 +28,11 @@ describe "Paper index page", type: :feature do
   end
 
 
+  it "should have an add-paper-link" do
+    visit papers_path
+
+    expect(page).to have_link("Add paper")
+  end
+
+
 end
