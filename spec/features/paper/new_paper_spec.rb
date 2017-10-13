@@ -33,10 +33,11 @@ describe "New paper page", type: :feature do
 
     fill_in "paper_title", :with => ''
     fill_in "paper_venue", :with => ''
-    fill_in "paper_year", :with => '2017'
+    fill_in "paper_year", :with => ''
     find('input[type="submit"]').click
     expect(page).to have_text("Title can't be blank")
     expect(page).to have_text("Venue can't be blank")
+    expect(page).to have_text("Year can't be blank")
   end
 
 
