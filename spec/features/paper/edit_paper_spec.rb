@@ -28,4 +28,15 @@ describe "Paper edit page", type: :feature do
     find('input[type="submit"]').click
   end
 
+
+  it "should have five author fields" do
+    paper = FactoryGirl.create :paper
+    visit edit_paper_path(paper)
+    
+    5.times do |i| 
+      expect(page).to have_field("Author #{i+1}")
+    end
+  end
+
+
 end
