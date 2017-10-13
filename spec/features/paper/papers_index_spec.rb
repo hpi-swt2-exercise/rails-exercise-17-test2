@@ -27,12 +27,18 @@ describe "Paper index page", type: :feature do
     expect(page).to have_text(paper.year)
   end
 
-
   it "should have an add-paper-link" do
     visit papers_path
 
     expect(page).to have_link("Add paper")
   end
 
+  it "should have a show-paper-link" do
+    paper = FactoryGirl.create :paper
+
+    visit papers_path
+
+    expect(page).to have_link("Show", paper_path(paper))
+  end
 
 end
