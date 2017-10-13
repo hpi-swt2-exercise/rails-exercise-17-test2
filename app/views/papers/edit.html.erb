@@ -1,0 +1,26 @@
+<h1>Edit paper</h1>
+
+ <%= form_for :paper, url: paper_path(@paper), method: :patch do |f| %>
+  
+  <p>
+    <%= f.label :title %><br>
+    <%= f.text_field :title %>
+  </p>
+ 
+  <p>
+    <%= f.label :venue %><br>
+    <%= f.text_field :venue %>
+  </p>
+ 
+  <p>
+    <%= f.label :year %><br>
+    <%= f.text_field :year %>
+  </p>
+
+  <p>
+    <%= f.submit %>
+  </p>
+ 
+<% end %>
+ 
+<%= link_to 'Back', papers_path %>
